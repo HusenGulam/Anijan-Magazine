@@ -97,4 +97,65 @@ img {
 
 section p {
   margin-bottom: 1rem;
-}/*# sourceMappingURL=index.css.map */
+}
+
+footer {
+  height: 40vh;
+}
+
+/*------ Settings ------*/
+.icon_row {
+  --color: #a5a5b0;
+  --size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+}
+
+.icon_row .chevron-right {
+  position: absolute;
+  animation: keyframes-return .5s backwards;
+}
+
+/* ------ On check event ------ */
+.icon_row input:checked ~ .chevron-right {
+  animation: keyframes-rotate .5s backwards;
+  transform: rotate(180deg);
+}
+
+/* ------ Hide the default checkbox ------ */
+.icon_row input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes keyframes-return {
+  0% {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

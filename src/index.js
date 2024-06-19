@@ -50,4 +50,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
         tableBody.appendChild(tr);
     });
+
+
+    let navbarMenuIcon = document.getElementById("navbar_icon");
+
+
+    navbarMenuIcon.addEventListener("click",() =>{
+        
+        navbarMenuIcon.classList.toggle = "click"
+
+    })
+
+
+
 });
