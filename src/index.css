@@ -12,8 +12,9 @@ header {
   max-width: 600px;
   height: 100vh;
   position: fixed;
-  left: 0;
   background: #020A52;
+  transform: translateX(0);
+  transition: all 1s ease-in-out;
 }
 
 nav {
@@ -51,17 +52,15 @@ header nav ul li a {
 }
 
 main {
-  width: 70%;
+  width: 50%;
   height: auto;
   padding: 10px;
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  right: 0;
+  margin: auto;
 }
 
 .container {
-  width: 70%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid red;
@@ -101,61 +100,23 @@ section p {
 
 footer {
   height: 40vh;
-}
+}/*# sourceMappingURL=index.css.map */
 
-/*------ Settings ------*/
-.icon_row {
-  --color: #a5a5b0;
-  --size: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-  font-size: var(--size);
-  user-select: none;
-  fill: var(--color);
-}
 
-.icon_row .chevron-right {
-  position: absolute;
-  animation: keyframes-return .5s backwards;
-}
-
-/* ------ On check event ------ */
-.icon_row input:checked ~ .chevron-right {
-  animation: keyframes-rotate .5s backwards;
-  transform: rotate(180deg);
-}
-
-/* ------ Hide the default checkbox ------ */
-.icon_row input {
-  position: absolute;
+.hidden{
   opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  filter: blur(5px);
+  transform: translateX(-100px);
+  transition: all 1s;
+}
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
 
-/* ------ Animation ------ */
-@keyframes keyframes-rotate {
-  0% {
-    transform: rotate(0deg);
-    opacity: 0;
-  }
-
-  100% {
-    transform: rotate(180deg);
-  }
-}
-
-@keyframes keyframes-return {
-  0% {
-    transform: rotate(180deg);
-    opacity: 0;
-  }
-
-  100% {
-    transform: rotate(0deg);
+@media (prefers-reduced-motion) {
+  .hidden{
+      transition: none;
   }
 }
