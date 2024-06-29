@@ -52,22 +52,9 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    let navbarMenuIcon = document.getElementById("navbar_icon");
-
-
-    navbarMenuIcon.addEventListener("click",() =>{
-        
-        let navbarMenu = document.getElementById("header");
-        navbarMenu.classList.toggle("click");
-        
-
-    })
-
-
-
     const obcerver = new IntersectionObserver((entries) =>{
         entries.forEach((entry) =>{
-            console.log(entry);
+           
             if(entry.isIntersecting){
                 entry.target.classList.add('show')
             }
@@ -83,6 +70,28 @@ window.addEventListener("DOMContentLoaded", () => {
     const hiddenElements = document.querySelectorAll('.hidden');
     
     hiddenElements.forEach((el) => obcerver.observe(el))
+
+
+
+
+    const rightCerver = new IntersectionObserver((entries) =>{
+        entries.forEach((entry) =>{
+            console.log(entry);
+            if(entry.isIntersecting){
+                entry.target.classList.add('rightShow')
+            }
+            else{
+                entry.target.classList.remove('rightShow')
+            } 
+        })
+    })
+    
+    
+    
+    
+    const rightElements = document.querySelectorAll('.right');
+    
+    rightElements.forEach((el) => rightCerver.observe(el))
 
 
 
